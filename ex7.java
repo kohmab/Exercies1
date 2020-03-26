@@ -10,8 +10,9 @@ class ex7 {
                       new HelpItem("Switch","switch ( _expression_ ) {\ncase: _constant_:\n_operator_\nbreak;\n// ...\n}"),
                       new HelpItem("For","for (_initialization condition_; _testing condition_; _increment/decrement_)\n _operator_"),
                       new HelpItem("While","while (_conditon_)\n _operator_"),
-                      new HelpItem("Do-while","do{\n_operator_\n} while (_condition_)")
-                        
+                      new HelpItem("Do-while","do{\n_operator_\n} while (_condition_)"),
+                      new HelpItem("Break","break;\n-= or =-\nbreak _label_;"),
+                      new HelpItem("Continue","continue;\n-= or =-\ncontinue _label_;")
   };
   System.out.println("Select item or press 'q' for quit:");
   for (int i = 0; i < Items.length; i++)
