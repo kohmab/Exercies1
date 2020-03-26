@@ -7,21 +7,32 @@ class ex7 {
    {
 
   HelpItem[] Items = {new HelpItem("If","if ( _condition_ ) _operator_\nelse _operator_"),
-                      new HelpItem("Switch","switch ( _expression_ ) {\ncase: _constant_:\n_operator_\nbreak;\n// ...\n}")};
-  System.out.println("Select item:");
+                      new HelpItem("Switch","switch ( _expression_ ) {\ncase: _constant_:\n_operator_\nbreak;\n// ...\n}"),
+                      new HelpItem("For","for (_initialization condition_; _testing condition_; _increment/decrement_)\n _operator_"),
+                      new HelpItem("While","while (_conditon_)\n _operator_"),
+                      new HelpItem("Do-while","do{\n_operator_\n} while (_condition_)")
+                        
+  };
+  System.out.println("Select item or press 'q' for quit:");
   for (int i = 0; i < Items.length; i++)
     System.out.println((i+1)+ ". "+Items[i].Name);
   
   int i = 0;
+  char c = 'x'; 
+  do {
   try {
-    i = Integer.valueOf((char) System.in.read()) - '0';
+    char tmp;
+    c = (char) System.in.read();
+    do tmp = (char) System.in.read(); while (tmp != '\n');
+    i = Integer.valueOf(c) - '0';
     i --;
-    if ( i < 0 || i > Items.length) throw new java.util.InputMismatchException();
+    if ( i > 0 || i <= Items.length) System.out.println(Items[i].Text);
   }
   catch (Exception e) {
-    System.out.println("Invalid index.");
+    if (c != 'q') System.out.println("Invalid index.");  
   }
-  System.out.println(Items[i].Text);
+  } while ( c != 'q');
+
   }    
 
 }
